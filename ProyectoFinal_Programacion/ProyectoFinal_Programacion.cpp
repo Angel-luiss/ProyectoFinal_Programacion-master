@@ -4,6 +4,7 @@
 #include "Empleados.h"
 #include <string.h>
 #include "Puestos.h"
+#include "Marcas.h"
 #include <conio.h>
 //nueva libreria, time.h
 #include <time.h>
@@ -13,37 +14,39 @@
 
 using namespace std;
 int x = 0;
-int op=0, op2=0, op3=0;
-//string calcular_hora();
+int op=0, op2=0, op3=0, op4=0 ,op5=0, op6=0;
+string calcular_hora();
 int main()
 {
-	string puesto = "";
-	int idpuesto = 0;
-	bool ciclo = true;
+	
 
-	/*string nombres = "", apellidos = "", direccion = "", dpi = "", fecha_inicio_lab = "", fechaingreso = "", fecha_nac = "";
+	string nombres = "", apellidos = "", direccion = "", dpi = "", fecha_inicio_lab = "", fechaingreso = "", fecha_nac = "";
 	int idpuesto = 0, telefono = 0;
 	
 	bool genero=1;
 	
 	char genero1;
-	bool ciclo = true;*/
+	bool ciclo = true;
 
 	do
 	{
-		//calcular_hora();
+		calcular_hora();
 		bool ciclo2 = true;
 		cout << "BIENVENIDO AL SISTEMA DE EL_BUEN_ZAPATO" << endl;
 		cout << "1. CRUD empleados" << endl;
 		cout << "2. CRUD puestos" << endl;
-		cout << "3. SALIR" << endl;
+		cout << "3. CRUD marcas" << endl;
+		cout << "4. CRUD marcas" << endl;
+		cout << "5. CRUD marcas" << endl;
+		cout << "5. CRUD marcas" << endl;
+		cout << "7. SALIR" << endl;
 		cout << "ELIJA !" << endl;
 		cin >> op;
 
 		do {
 		switch (op) {
 			
-			/*	{
+			{
 		case 1:
 			
 			bool ciclo3 = true;
@@ -194,105 +197,252 @@ int main()
 				
 			}
 			break;
-			}*/
-			{
+			}
+			
+		
+	{
+
 
 
 		case 2:
-
-		bool ciclo3 = true;
-		Puestos pu = Puestos(puesto);
-		
-
-		cout << "------------------CRUD PUESTOS-------------------------" << endl;
-		cout << "\t\t_________________________________________________" << endl;
-		cout << "\t\t-------------- TABLA EMPLEADOS -------------------- " << endl;
-		cout << "\t\tINGRESE OPCION" << endl;
-		cout << "\t\t1 CREAR" << endl;
-		cout << "\t\t2 LEER" << endl;
-		cout << "\t\t3 ACTUALIZAR" << endl;
-		cout << "\t\t4 ELIMINAR" << endl;
-		cout << "\t\t5. SALIR" << endl;
-		cout << "\t\tELIJA !" << endl;
-		cin >> op2;
-
-		switch (op2) {
-
-			{
-		case 1:
-
-			cout << "ingrese puesto" << endl;
-			cin.ignore();
-			getline(cin, puesto);
-			
-
-			
-
-			pu.crear();
-			break;
-
-			{
-		case 2:
-			system("cls");
-			cout << "INFORMACION REVELADA" << endl;
-			pu.leer();
-			break;
-			}
-
-			{
-		case 3:
-			char eleccion;
-			cout << "ingrese id a modificar" << endl;
-			cin >> x;
-			pu.leer();
-			cout << "\nDesea modificar ? (s/n): ";
-			cin >> eleccion;
-			if (eleccion == 'n') {
-				break;
-			}
-
-			cout << "ingrese puesto" << endl;
-			cin.ignore();
-			getline(cin, puesto);
-			pu.actualizar(x);
-
-			system("pause");
-			system("cls");
+			string puesto = "";
+int idpuesto = 0;
+bool ciclo = true;
+bool ciclo3 = true;
+Puestos pu = Puestos(puesto);
 
 
-			break;
 
-			}
-			{
-		case 4:
-			int busqueda = 0;
-			cout << "id a eliminar" << endl;
-			cin >> x;
-			pu.leer();
-			cout << "ELIMINAR? (1/0)" << endl;
-			cin >> busqueda;
-			if (busqueda == 1) {
-				pu.eliminar(x);
-			}
-			else {
-				cout << "no hiciste nada" << endl;
-			}
-			break;
-			}
-			}
-		
+cout << "------------------CRUD PUESTOS-------------------------" << endl;
+cout << "\t\t_________________________________________________" << endl;
+cout << "\t\t-------------- TABLA EMPLEADOS -------------------- " << endl;
+cout << "\t\tINGRESE OPCION" << endl;
+cout << "\t\t1 CREAR" << endl;
+cout << "\t\t2 LEER" << endl;
+cout << "\t\t3 ACTUALIZAR" << endl;
+cout << "\t\t4 ELIMINAR" << endl;
+cout << "\t\t5. SALIR" << endl;
+cout << "\t\tELIJA !" << endl;
+cin >> op2;
+
+switch (op2) {
+
+	{
+case 1:
+
+	string puesto = "";
+	int idpuesto = 0;
+	bool ciclo = true;
+
+	cout << "ingrese puesto" << endl;
+	cin.ignore();
+	getline(cin, puesto);
+
+	//pu.setpuesto(puesto);
+
+
+	pu.crear();
+	break;
 	}
+	{
+case 2:
+	system("cls");
+	cout << "INFORMACION REVELADA" << endl;
+	pu.leer();
+	break;
+	}
+
+	{
+case 3:
+	char eleccion;
+	cout << "ingrese id a modificar" << endl;
+	cin >> x;
+	pu.leer();
+	cout << "\nDesea modificar ? (s/n): ";
+	cin >> eleccion;
+	if (eleccion == 'n') {
+		break;
+	}
+
+	cout << "ingrese puesto" << endl;
+	cin.ignore();
+	getline(cin, puesto);
+	pu.actualizar(x);
+
+	system("pause");
+	system("cls");
+
+
+	break;
+
+	}
+	{
+case 4:
+	int busqueda = 0;
+	cout << "id a eliminar" << endl;
+	cin >> x;
+	pu.leer();
+	cout << "ELIMINAR? (1/0)" << endl;
+	cin >> busqueda;
+	if (busqueda == 1) {
+		pu.eliminar(x);
+	}
+	else {
+		cout << "no hiciste nada" << endl;
+	}
+	break;
+	}
+
+
+}
+
+break;
+
+
+		}
+	/////emp
+		{
+		case 3:
+
+			string(marca);
+			int idmarca=0;
+
+			bool ciclo3 = true;
+			Marcas ma = Marcas(idmarca,marca);
+
+			cout << "\t\t_________________________________________________" << endl;
+			cout << "\t\t-------------- TABLA EMPLEADOS -------------------- " << endl;
+			cout << "\t\tINGRESE OPCION" << endl;
+			cout << "\t\t1 CREAR" << endl;
+			cout << "\t\t2 LEER" << endl;
+			cout << "\t\t3 ACTUALIZAR" << endl;
+			cout << "\t\t4 ELIMINAR" << endl;
+			cout << "\t\t5. SALIR" << endl;
+			cout << "\t\tELIJA !" << endl;
+			cin >> op2;
+
+			switch (op2) {
+				{
+			case 1:
+
+				cout << "ingrese marca" << endl;
+				cin.ignore();
+				getline(cin, marca);
+		
+				ma.crear();
+				break;
+				}
+
+
+				{
+			case 2:
+				system("cls");
+				cout << "INFORMACION REVELADA" << endl;
+				ma.leer();
+				break;
+				}
+				{
+			case 3:
+				char eleccion;
+				cout << "ingrese id a modificar" << endl;
+				cin >> x;
+				ma.leer();
+				cout << "\nDesea modificar ? (s/n): ";
+				cin >> eleccion;
+				if (eleccion == 'n') {
+					break;
+				}
+
+				cout << "ingrese marca" << endl;
+				cin.ignore();
+				getline(cin, marca);
+				ma.actualizar();
+
+				system("pause");
+				system("cls");
+
+
+				break;
+
+				}
+				{
+			case 4:
+				int busqueda = 0;
+				cout << "id a eliminar" << endl;
+				cin >> x;
+				ma.leer();
+				cout << "ELIMINAR? (1/0)" << endl;
+				cin >> busqueda;
+				if (busqueda == 1) {
+					ma.eliminar();
+				}
+				else {
+					cout << "no hiciste nada" << endl;
+				}
+				break;
+				}
+			}
+
 		return 0;
 		break;
-			}
 
-			{
-	case 5:
-		ciclo = false;	
+	}//fin
+
+		//emp
+		{
+		case 4:
+			cout << "no hiciste nada" << endl;
+
+
+
+
+			return 0;
+			break;
+
+		}
+		//fin
+
+		//empeza
+		{
+		case 5:
+			cout << "no hiciste nada" << endl;
+
+
+
+
+			return 0;
+			break;
+
+		}  //fin
+
+		//empeza
+		{
+		case 6:
+			cout << "no hiciste nada" << endl;
+
+
+
+
+			return 0;
+			break;
+
+		}  //fin
+
+		
+		{
+
+
+	case 7:
+		ciclo = false;
 		ciclo2 = false;
 		break;
 			}
-		} 
+		}
+
+	
+	
+
+
 		} while (ciclo2 != 0);
 
 	
@@ -302,7 +452,7 @@ int main()
 	return 0;
 }
 ;
-/*
+
 //metodo nuevo
 string calcular_hora() {
 	time_t now = time(NULL);
@@ -314,4 +464,4 @@ string calcular_hora() {
 
 
 
-};*/
+};

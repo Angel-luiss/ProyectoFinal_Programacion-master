@@ -9,7 +9,7 @@ private: MYSQL* conectar;
 public:
 	void abrir_conexion() {
 		conectar = mysql_init(0);
-		conectar = mysql_real_connect(conectar, "localhost", "usr_empresa", "empres@123", "bd_final", 3306, NULL, 0);
+		conectar = mysql_real_connect(conectar, "localhost", "usr_empresa", "empres@123", "db_estudiantes", 3306, NULL, 0);
 	}
 	MYSQL* getconectar() {
 		return conectar;
