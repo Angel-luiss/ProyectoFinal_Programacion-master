@@ -155,15 +155,15 @@
     <ClCompile Include="Puestos.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Clientes.h" />
+    <ClInclude Include="Cliente.h" />
     <ClInclude Include="Compra.h" />
     <ClInclude Include="ConexionBD.h" />
-    <ClInclude Include="cProducto.h" />
-    <ClInclude Include="Empleados.h" />
-    <ClInclude Include="Marcas.h" />
+    <ClInclude Include="Producto.h" />
+    <ClInclude Include="Empleado.h" />
+    <ClInclude Include="Marca.h" />
     <ClInclude Include="Persona.h" />
-    <ClInclude Include="Proveedores.h" />
-    <ClInclude Include="Puestos.h" />
+    <ClInclude Include="Proveedore.h" />
+    <ClInclude Include="Puesto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

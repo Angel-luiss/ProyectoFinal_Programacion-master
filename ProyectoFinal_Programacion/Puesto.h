@@ -5,13 +5,13 @@
 #include <string>
 using namespace std;
 
-class Puestos{
+class Puesto{
 private: string puesto;
 
 public:
-	Puestos() {
+	Puesto() {
 	}
-	Puestos(string pue) {
+	Puesto(string pue) {
 		puesto = pue;
 	}
 	//CRUD//
@@ -70,6 +70,39 @@ public:
 		cn.cerrar_conexion();
 	}
 
+	void leer(int x) {
+		ConexionBD cn = ConexionBD();
+		int q_estado;
+		MYSQL_ROW fila;
+		MYSQL_RES* resultado;
+		cn.abrir_conexion();
+		string auxtext = to_string(x);
+		cout << "id_p" << " | " << "puesto" << endl;
+
+		if (cn.getconectar()) {
+			string consulta = "select *from puestos where idPuesto = " + auxtext + ";";
+			const char* con = consulta.c_str(); //convertimos a char
+			q_estado = mysql_query(cn.getconectar(), con);
+			if (!q_estado) {
+				resultado = mysql_store_result(cn.getconectar());
+
+				while (fila = mysql_fetch_row(resultado)) {
+					for (int i = 0; i <= 1; i++) {
+						cout << fila[i] << " , ";
+					}
+					cout << endl;
+				}
+			}
+			else {
+				cout << " error al hacer select XXX" << endl;
+			}
+		}
+		else {
+			cout << " xxx sin conexion xxx" << endl;
+		}
+		cn.cerrar_conexion();
+	}
+
 	
 
 
@@ -99,10 +132,30 @@ public:
 	}
 
 	void eliminar(int x) {
+		int q_estado;
+		ConexionBD cn = ConexionBD();
+		cn.abrir_conexion();
+		string busquedaaux = to_string(x);
+		if (cn.getconectar()) {
+			string eliminar = "delete from puestos where idPuesto = " + busquedaaux + "; ";
+			const char* eli = eliminar.c_str();
+			q_estado = mysql_query(cn.getconectar(), eli);
+			if (!q_estado) {
+				cout << " fila eliminada !!!!" << endl;
+			}
+			else {
+				cout << "XXXX error al hacer delete xxxx" << endl;
+			}
+		}
+		else {
+			cout << "ERROR EN LA CONEXION!!!!" << endl;
+
+		}
+		cn.cerrar_conexion();
 	};
 	///////////////////////////
 
-	
+	void setPuesto(string pue) { puesto = pue; }
 
 
 };

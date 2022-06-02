@@ -1,7 +1,8 @@
 #pragma once
-#include <iostream>
-#include <mysql.h>
 #include "ConexionBD.h"
+#include <iostream>
+#include <string.h>
+#include <time.h>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ class Compra {
 	//         cantidad(en base al producto)   precio_costo_unitario(en base al producto)
 	//extra: cantidad*costo     total
 
-private: string idCompra, idCompraDetalle, noOrdenCompra, idProveedor;
+public: string idCompra, idCompraDetalle, noOrdenCompra, idProveedor;
 
 public: string idProducto;
 	  int cantidad = 0;
@@ -31,13 +32,14 @@ public:
 		costo = cost;
 		total = tot;
 	}
-/*
+
 	void ingresoCompras() {
 		int q_consulta;
 		MYSQL_ROW fila;
 		MYSQL_RES* resultado;
 		ConexionBD cn = ConexionBD();
-		cn.abrir_conexion;
+		
+		cn.abrir_conexion();
 
 		if (cn.getconectar()) {
 			string consulta = "select proveedor, nit, direccion, telefono from proveedores where idproveedores =" + idProveedor + ";";
@@ -61,12 +63,13 @@ public:
 		}
 		cn.cerrar_conexion();
 	}
+	   
 	void ingresoCompraDet() {
 		int q_consulta;
 		MYSQL_ROW fila;
 		MYSQL_RES* resultado;
 		ConexionBD cn = ConexionBD();
-		cn.abrir_conexion;
+		cn.abrir_conexion();
 
 		if (cn.getconectar()) {
 			string consulta = "select p.producto, m.marca, p.descripcion, p.existencia, p.fecha_ingreso from productos as p inner join marcas as m on p.idmarca=m.idmarca where idproductos =" + idProducto + ";";
@@ -172,7 +175,6 @@ public:
 		}
 		cn.cerrar_conexion();
 	}
-
 	void lecturacompra() {
 		int q_consulta;
 		MYSQL_ROW fila;
@@ -208,7 +210,6 @@ public:
 		}
 		cn.cerrar_conexion();
 	}
-
 	void lecturacompra(string idcompra) {
 		int q_consulta;
 		MYSQL_ROW fila;
@@ -262,7 +263,6 @@ public:
 		}
 		cn.cerrar_conexion();
 	}
-
 	void actualizarcompra(string idcompra) {
 		int q_consulta;
 		ConexionBD cn = ConexionBD();
@@ -310,59 +310,7 @@ public:
 		}
 		cn.cerrar_conexion();
 	}
-	*/
 
 
 };
 
-
-
-
-
-
-
-
-/*#pragma once
-#include "ConexionBD.h"
-#include <iostream>
-#include <string.h>
-#include <time.h>
-
-using namespace std;
-class Compra
-{
-private:
-	int id_compra=0;
-	int id_compradetalle=0;
-	int noOrdenCompra=0;
-
-public:
-	int id_proveedor=0;
-	string fecha_orden, fecha_ing;
-	struct detalle {
-		int id_producto;
-		float p_unitario;
-		int cant;
-	};
-
-	
-	   
-
-public:
-	Compra() {
-	}
-	Compra(int id_comp, int id_compradet, int noOrden, int id_pro, string f_orden, string f_ing) {
-		id_compra = id_comp;
-		id_compradetalle = id_compradet;
-		noOrdenCompra = noOrden;
-		id_proveedor = id_pro;
-		fecha_orden = f_orden;
-		fecha_ing = f_ing;
-		
-	}
-	
-	int getId_compra() { return id_compra; }
-
-};
-
-*/
